@@ -35,11 +35,13 @@ from .a1.a1_parkour_config import A1ParkourCfg, A1ParkourCfgPPO
 from .go1.go1_config import Go1RoughCfg, Go1RoughCfgPPO
 from .wow.wow_config import wowRoughCfg, wowCfgPPO
 from .wow.wow import Wow
+from .bruce.bruce_config import BruceCfg, BruceCfgPPO
+from .bruce.bruce import Bruce
 
 from legged_gym.utils.task_registry import task_registry
 
 task_registry.register( "a1", LeggedRobot, A1ParkourCfg(), A1ParkourCfgPPO() )
 task_registry.register( "go1", LeggedRobot, Go1RoughCfg(), Go1RoughCfgPPO() )
 task_registry.register( "wow", Wow, wowRoughCfg(), wowCfgPPO() )
-
+task_registry.register( "Bruce", Bruce, BruceCfg(), BruceCfgPPO() )
 
