@@ -54,12 +54,12 @@ class Bruce(LeggedRobot):
         self.reset_buf |= self.reset_orientation
 
         self.base_height = torch.mean(self.root_states[:, 2].unsqueeze(1) - self.measured_heights, dim=1)
-        self.reset_base = self.base_height < 0.63
+        self.reset_base = self.base_height < 0.3
         self.reset_buf |= self.reset_base
 
         # 新的关节位置终止条件
-        out_of_limits_low_cutoff = torch.any(self.dof_pos < self.dof_pos_limits[:, 0]*0.9, dim=1) # lower limit
-        out_of_limits_high_cutoff = torch.any(self.dof_pos > self.dof_pos_limits[:, 1]*0.9, dim=1)
+        # out_of_limits_low_cutoff = torch.any(self.dof_pos < self.dof_pos_limits[:, 0]*0.9, dim=1) # lower limit
+        # out_of_limits_high_cutoff = torch.any(self.dof_pos > self.dof_pos_limits[:, 1]*0.9, dim=1)
 
                 # limit torques make sense
         # self.reset_buf |= out_of_limits_low_cutoff
@@ -105,7 +105,7 @@ class Bruce(LeggedRobot):
             self.obs_buf = obs_buf
 
         self.privileged_obs_buf = torch.cat([obs_buf, priv_explicit, priv_latent, heights], dim=-1)
-        
+        # print('self.privileged_obs_buf',self.privileged_obs_buf.size())
  
     def _reward_tracking_x_line_vel(self):
         # Tracking of linear velocity commands (x axes)

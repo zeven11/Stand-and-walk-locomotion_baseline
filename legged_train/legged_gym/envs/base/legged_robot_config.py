@@ -221,23 +221,23 @@ class LeggedRobotCfg(BaseConfig):
         lin_vel_clip = 0.2
         ang_vel_clip = 0.15
 
-        lin_vel_x = [-1.0, 1.0]  # min max [m/s]
-        lin_vel_y = [-1.0, 1.0]  # min max [m/s]
-        ang_vel_yaw = [-1, 1]  # min max [rad/s]
-        body_height_cmd = [-0.05, 0.05]
+        lin_vel_x = [-0.1, 0.3]  # min max [m/s]
+        lin_vel_y = [-0.1, 0.1]  # min max [m/s]
+        ang_vel_yaw = [-0, 0]  # min max [rad/s]
+        body_height_cmd = [-0.0, 0.0]
         impulse_height_commands = False
 
-        limit_vel_x = [-10.0, 10.0]
+        limit_vel_x = [-1.0, 1.0]
         limit_vel_y = [-0.6, 0.6]
-        limit_vel_yaw = [-10.0, 10.0]
+        limit_vel_yaw = [-1.0, 1.0]
 
-        heading = [-3.14, 3.14]
+        heading = [-0., 0.]
         # Easy ranges
         class ranges:
-            lin_vel_x = [0.5, 1] # min max [m/s]
+            lin_vel_x = [-0.2, 0.3] # min max [m/s]
             lin_vel_y = [-0, 0]   # min max [m/s]
-            ang_vel_yaw = [-0.1,0.1]    # min max [rad/s]
-            heading = [-0.1, 0.1]
+            ang_vel_yaw = [-0.,0.]    # min max [rad/s]
+            heading = [-0., 0.]
 
         # Easy ranges
         class max_ranges:
@@ -307,7 +307,7 @@ class LeggedRobotCfg(BaseConfig):
         ##--------------------------
 
         randomize_base_mass = True
-        added_mass_range = [-0.3, 0.3]
+        added_mass_range = [-0.2, 0.6]
 
         randomize_base_com = True
         added_com_range = [-0.05, 0.05]
@@ -336,10 +336,10 @@ class LeggedRobotCfg(BaseConfig):
         
         push_robots = True
         push_interval_s = 10
-        max_push_vel_xy = 0.7
+        max_push_vel_xy = 0.2
 
         disturbance = True
-        disturbance_range = [-10.0, 10.0]
+        disturbance_range = [-3.0, 3.0]
         disturbance_interval = 8
 
         ##--------------------------

@@ -2,7 +2,7 @@ from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobot
 
 class BruceCfg( LeggedRobotCfg ):
     class env( LeggedRobotCfg.env):
-        num_envs = 4096
+        num_envs = 6144
 
         scan_dim = 11*11
         priv_dim = 3
@@ -42,11 +42,11 @@ class BruceCfg( LeggedRobotCfg ):
         # PD Drive parameters:
         control_type = 'P'
         stiffness = {
-            'hip_yaw': 15,
-            'hip_roll': 15,
-            'hip_pitch': 20,
-            'knee_pitch': 20,
-            'ankle_pitch': 5,
+            'hip_yaw': 4,
+            'hip_roll': 4,
+            'hip_pitch': 5,
+            'knee_pitch': 5,
+            'ankle_pitch': 0.5,
             
             # 'hip_yaw': 30,
             # 'hip_roll': 30,
@@ -63,7 +63,7 @@ class BruceCfg( LeggedRobotCfg ):
             'hip_roll': 0.2,
             'hip_pitch': 0.2,
             'knee_pitch': 0.2,
-            'ankle_pitch': 0.1,
+            'ankle_pitch': 0.01,
             
             # 'shoulder_pitch': 0.5,
             # 'shoulder_roll': 0.5,
@@ -185,5 +185,5 @@ class BruceCfgPPO( LeggedRobotCfgPPO ):
 
     class runner( LeggedRobotCfgPPO.runner ):
         run_name = ''
-        experiment_name = 'wow'
+        experiment_name = 'Bruce'
   

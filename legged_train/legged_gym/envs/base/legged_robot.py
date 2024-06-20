@@ -1125,8 +1125,8 @@ class LeggedRobot(BaseTask):
         for i in range(len(termination_contact_names)):
             self.termination_contact_indices[i] = self.gym.find_actor_rigid_body_handle(self.envs[0], self.actor_handles[0], termination_contact_names[i])
 
-        
-        hip_names = ["left_roll_joint","right_roll_joint","left_yaw_joint","right_yaw_joint"]
+        hip_names = ["hip_roll_l","hip_roll_r","hip_yaw_l","hip_yaw_r"]   # bruce
+        # hip_names = ["left_roll_joint","right_roll_joint","left_yaw_joint","right_yaw_joint"]
         self.hip_indices = torch.zeros(len(hip_names), dtype=torch.long, device=self.device, requires_grad=False)
         for i, name in enumerate(hip_names):
             self.hip_indices[i] = self.dof_names.index(name)

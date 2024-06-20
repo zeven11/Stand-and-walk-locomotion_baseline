@@ -106,7 +106,7 @@ class Wow(LeggedRobot):
             self.obs_buf = obs_buf
 
         self.privileged_obs_buf = torch.cat([obs_buf, priv_explicit, priv_latent, heights], dim=-1)
-        
+        print('self.privileged_obs_buf',self.privileged_obs_buf.size())
  
     def _reward_tracking_x_line_vel(self):
         # Tracking of linear velocity commands (x axes)
